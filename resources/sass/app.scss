@@ -1,0 +1,704 @@
+@font-face {
+    font-family: "tele-groteskfetregular";
+    src: url("../fonts/tele-groteskfet-webfont.woff2") format("woff2"),
+        url("../fonts/tele-groteskfet-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "tele-groteskhalregular";
+    src: url("../fonts/tele-groteskhal-webfont.woff2") format("woff2"),
+        url("../fonts/tele-groteskhal-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "tele-grotesknorregular";
+    src: url("../fonts/tele-grotesknor-webfont.woff2") format("woff2"),
+        url("../fonts/tele-grotesknor-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "tele-groteskultregular";
+    src: url("../fonts/tele-groteskult-webfont.woff2") format("woff2"),
+        url("../fonts/tele-groteskult-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    border-radius: 0 !important;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+}
+
+#qrcode{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    width: 256px;
+    height: 256px;
+}
+
+#qrcode-label{
+    position: absolute;
+    left: 50%;
+    top: calc(50% - 200px);
+    transform: translateX(-50%);
+}
+.qrcode-nav{
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-height: calc(50vh - 256px);
+    max-width: 100%;
+}
+
+.qrcode-print-bg-portrait{
+    opacity: 0;
+}
+
+@page { size: auto;  margin: 0mm !important; }
+@media print{
+    .force-print-white{
+        color: rgba(0,0,0,0) !important;
+        text-shadow: 0 0 #fff !important;
+    }
+
+    .print-hide{
+        display: none !important;
+    }
+}
+
+body {
+    background-color: #e20074;
+    font-family: "tele-grotesknorregular", sans-serif;
+    font-size: 22px;
+    line-height: 1.2;
+    color: #fff;
+    padding: 1em 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "tele-groteskultregular", sans-serif;
+    /*font-weight: 400;*/
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 30px;
+    font-family: "tele-groteskfetregular", sans-serif;
+}
+
+strong {
+    font-family: "tele-groteskultregular", sans-serif;
+    /*font-weight: 400;*/
+}
+
+a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+#app {
+    padding: 0 1em;
+}
+
+.alert {
+    margin: auto;
+    margin-bottom: 1rem;
+    max-width: 600px;
+}
+
+.alert-success {
+    color: #fff;
+    background-color: transparent;
+    border-color: #fff;
+}
+
+.btn.btn-tmobile,
+a.btn-tmobile {
+    font-family: "tele-groteskfetregular", sans-serif;
+    background-color: #fff;
+    border: 3px solid #fff;
+    color: #e20074;
+    padding: 0.5em 2em;
+    line-height: 1;
+    text-decoration: none;
+    display: inline-block;
+    width: 150px;
+    margin-bottom: 0.3em;
+}
+
+.btn.btn-tmobile:hover,
+a.btn-tmobile:hover {
+    box-shadow: 0 0 30px 6px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+}
+
+.btn.btn-tmobile:not(:disabled):not(.disabled):active,
+a.btn-tmobile:not(:disabled):not(.disabled):active {
+    border-color: #fff;
+    background-color: #fff;
+    color: #e20074;
+}
+
+.btn-tmobile a,
+.btn-tmobile a:hover {
+    text-decoration: none;
+    color: #e20074;
+}
+
+.btn.btn-tmobile-modal,
+a.btn-tmobile-modal {
+    font-family: "tele-groteskfetregular", sans-serif;
+    background-color: #e20074;
+    border: 3px solid #e20074;
+    color: #fff;
+    padding: 0.5em 2em;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.btn.btn-tmobile-modal:hover,
+a.btn-tmobil-modal:hover {
+    box-shadow: 0 0 30px 6px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+}
+
+.btn.btn-tmobile-modal:not(:disabled):not(.disabled):active,
+a.btn-tmobile-modal:not(:disabled):not(.disabled):active {
+    border-color: #3a3a3a;
+    background-color: #3a3a3a;
+    color: #fff;
+}
+
+.btn-make-admin {
+    display: inline-block;
+    margin-right: 0.5em;
+    border: 0;
+    padding: 0.2em 0.2em 0.08em 0.2em;
+    text-decoration: none;
+    font-family: "tele-grotesknorregular", sans-serif;
+    line-height: 1;
+    font-size: 0.9em;
+    background-color: #e20074;
+    color: #fff !important;
+}
+
+.btn-make-admin:hover {
+    text-decoration: none;
+}
+
+.modal {
+    color: #3a3a3a;
+}
+
+.modal a {
+    color: #e20074;
+}
+
+.modal-body {
+    padding: 3rem;
+}
+
+.modal-body h1,
+.modal-body h2 {
+    margin-bottom: 0.8em;
+}
+
+.navbar .container {
+    position: relative;
+}
+
+#navbarDropdown {
+    text-align: right;
+}
+
+.dropdown-item:active {
+    background-color: #e20074;
+}
+
+.navbar-tmobile > .container > a {
+    display: inline-block;
+    width: 100%;
+    max-width: 300px;
+}
+
+.navbar-tmobile > .container > a > img {
+    width: 130%;
+    max-width: 300px;
+}
+
+@media (max-width: 420px) {
+    .navbar-tmobile > .container > a {
+        width: 80%;
+    }
+}
+
+.navbar-toggler {
+    display: none;
+}
+
+.collapse:not(.show) {
+    display: block !important;
+}
+
+.navbar-nav {
+    flex-direction: column !important;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    text-align: right;
+}
+
+nav .navbar-collapse {
+    margin-top: 1em;
+}
+
+@media (min-width: 768px) {
+    nav .navbar-collapse {
+        margin-top: 0;
+    }
+}
+
+.form-control {
+    /*border: 0;*/
+}
+
+.form-control:focus {
+    outline: 0;
+    box-shadow: 0 0 30px 6px rgba(0, 0, 0, 0.2);
+}
+
+.form-check-input.is-valid ~ .form-check-label,
+.was-validated .form-check-input:valid ~ .form-check-label {
+    color: inherit;
+}
+
+.form-check-input.is-invalid ~ .form-check-label,
+.was-validated .form-check-input:invalid ~ .form-check-label {
+    color: #ffaacc;
+}
+
+.help-block ul.list-unstyled {
+    padding: 0;
+    margin: 0;
+}
+
+.with-errors {
+    color: #ffaacc;
+}
+
+/*********************** GUEST / NOT-LOGGED-IN PAGES *************************************/
+
+.guest-navbar {
+    text-align: center;
+    padding: 1.5em 0 2em 0;
+}
+
+.guest-navbar .container {
+    display: block;
+    text-align: center;
+}
+
+.guest-container {
+    max-width: 800px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: auto;
+    text-align: left;
+}
+
+.login-form-container {
+    margin: auto;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding-top: 3rem;
+}
+
+.login-form-container form {
+    text-align: center;
+    margin-bottom: 8rem;
+}
+
+.login-form-container form > div {
+    margin-bottom: 0.5em;
+}
+
+a.forgot-password {
+    font-size: 0.8em;
+}
+
+div.or {
+    margin: 0 0 5px 0;
+}
+
+.login-form-container a.btn-tmobile {
+    font-size: 1rem;
+}
+
+.has-error input[type="text"],
+.has-error input[type="email"],
+.has-error select {
+    border: 1px solid #a94442;
+}
+
+.login-footer {
+    font-size: 0.8em;
+}
+
+/* .login-footer a {
+  text-decoration: none;
+  } */
+
+/*********************** ADMIN PAGES *************************************/
+
+.dropdown-menu {
+    text-align: right;
+    top: 75%;
+    transition: all 0.5s;
+    display: block;
+    height: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.5s;
+    box-shadow: 0 0 30px 6px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    height: auto;
+    padding: 1.4rem 0;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    padding: 0.6rem 2.2rem;
+}
+
+.intro-text-list {
+    text-align: center;
+}
+
+.intro-text-list ul {
+    width: auto;
+    display: inline-block;
+    text-align: left;
+    padding-right: 40px;
+}
+
+.intro-text-list ul li {
+    font-size: 16px;
+    line-height: 1.2;
+    margin-bottom: 0.2em;
+}
+
+#events-table_wrapper {
+    padding-top: 50px;
+}
+
+@media (min-width: 768px) {
+    #events-table_wrapper {
+        padding-top: 0;
+    }
+}
+
+.table-row {
+    padding-top: 0.5em;
+}
+
+#btn-create-event {
+    position: absolute;
+    top: -8px;
+    left: 15px;
+}
+
+.dataTables_filter input[type="search"] {
+    outline: 0;
+    border: 0;
+}
+
+.dataTable {
+    background-color: #fff;
+    color: #5a5a5a;
+}
+
+.dataTable thead {
+    background-color: #3a3a3a;
+    color: #fff;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.dataTable tbody {
+    font-size: 18px;
+}
+
+.dataTable tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.dataTable a {
+    color: #e20074;
+}
+
+.table td,
+.table th {
+    padding: 0.5em;
+}
+
+.table td:last-child,
+.table th:last-child {
+    min-width: 200px;
+}
+
+.table.table-bordered thead th {
+    border-bottom-width: 1px;
+    padding-top: 0.65em;
+}
+
+#events-table tbody tr td:last-of-type a {
+    display: inline-block;
+    margin-right: 1em;
+}
+
+a.paginate_button {
+    font-size: 18px;
+    display: inline-block;
+    padding: 0.3em 0.3em 0.2em 0.3em;
+    background-color: #fff;
+    color: #e20074;
+    text-decoration: none;
+    margin: 0 0.3em 0.3em 0;
+    min-width: 30px;
+    text-align: center;
+    line-height: 1;
+    cursor: pointer;
+}
+
+a.paginate_button.current {
+    font-weight: bold;
+    color: #3a3a3a;
+}
+
+span.ellipsis {
+    margin-right: 0.3em;
+}
+
+.action-legend {
+    font-size: 16px;
+    float: right;
+    position: relative;
+    top: -1.8em;
+}
+
+.action-legend > div {
+    margin-bottom: 0.3em;
+    margin-left: 1em;
+    display: block;
+}
+
+.action-legend > div .fas {
+    width: 20px;
+    text-align: center;
+}
+
+@media (max-width: 991px) {
+    .action-legend > div {
+        display: block;
+        width: 150px;
+    }
+}
+
+@media (max-width: 767px) {
+    .action-legend {
+        float: none;
+        top: 0;
+        margin-top: 1em;
+    }
+
+    .action-legend > div {
+        margin-left: 0;
+    }
+}
+
+/*********************** CREATE EVENT FORM PAGE *************************************/
+
+.create-event-form-container {
+    margin: auto;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding-top: 3rem;
+}
+
+.create-event-form-container form {
+    text-align: center;
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.create-event-form-container form > div {
+    margin-bottom: 0.5em;
+    text-align: left;
+}
+
+.create-event-form-container .help-block {
+    display: inline-block;
+    color: #ffaacc;
+}
+
+.create-event-form-container .help-block ul.list-unstyled {
+    margin-bottom: 0;
+}
+
+/*********************** REGISTRATION PAGE *************************************/
+
+.registration-page-container {
+    text-align: center;
+}
+
+.registration-page-container h1 {
+    margin-bottom: 0.4em;
+}
+
+.registration-page-container h2 {
+    margin-bottom: 1.5em;
+}
+
+.registration-form-container {
+    text-align: left;
+}
+
+.registration-form-container .input-row label {
+    margin-bottom: 0;
+    margin-top: 0.3em;
+}
+
+.registration-form-container .input-row .help-block {
+    margin-top: 0.3em;
+}
+
+.registration-form-container .text-row {
+    margin-bottom: 0.3em;
+}
+
+.registration-form-container .form-buttons {
+    padding: 1em 0;
+    text-align: center;
+}
+
+.registration-form-container .form-buttons button {
+    /*	margin: 0 1em;*/
+}
+
+@media (max-width: 767px) {
+    .registration-form-container .form-row .col-3.text-right {
+        text-align: left !important;
+        width: 100%;
+        max-width: 100%;
+        flex: none;
+    }
+
+    .registration-form-container .form-row .col-6 {
+        text-align: left !important;
+        width: 100%;
+        max-width: 100%;
+        flex: none;
+    }
+
+    .registration-form-container .form-row .col-4.offset-3 {
+        margin-left: 0;
+        max-width: 50%;
+        width: 50%;
+        flex: none;
+    }
+
+    .registration-form-container .form-row .col-2 {
+        width: 45%;
+        max-width: 45%;
+        flex: none;
+    }
+
+    .registration-form-container .form-row .col-6.offset-3 {
+        margin-left: 0;
+    }
+}
+
+/*********************** FORM ERRORS *************************************/
+
+.survey-form-container {
+    max-width: 600px;
+}
+
+.survey-question {
+    font-family: "tele-groteskultregular", sans-serif;
+    // font-weight: bold;
+    margin-top: 25px;
+}
+
+.survey-answer-wrapper {
+    padding-left: 25px;
+}
+
+.info-block {
+    font-size: 16px;
+    color: #fac;
+    margin-top: 8px;
+}
+
+#modal-18-text.hidden {
+    display: none;
+}
+
+/*********************** FORM ERRORS *************************************/
+
+span.invalid-feedback strong {
+    color: white;
+    font-weight: normal;
+}
+
+/*********************** BOOTSTRAP OVERRIDES *************************************/
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .container {
+        max-width: 1070px !important;
+    }
+}
+
+/*********************** SURVEY FORM AGE HANDLING *************************/
+.survey-form .form-group:not(.age-check) {
+    transition: 0.5s opacity;
+}
+
+.survey-form .form-group:not(.age-check).inactive {
+    opacity: 0.5;
+    pointer-events: none;
+}

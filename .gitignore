@@ -1,0 +1,22 @@
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+/.idea
+/.vscode
+/nbproject
+/.vagrant
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.env
+.phpunit.result.cache
+.DS_Store
+tmobile-event-registration.sublime-project
+tmobile-event-registration.sublime-workspace
+selligent
+
+# Include this file for Quotaguard Shield on Heroku
+!/vendor/nss_wrapper/libnss_wrapper.so
